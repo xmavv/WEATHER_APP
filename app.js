@@ -1,6 +1,5 @@
 let city='Wroclaw';
 let apiKey = "appid=bf528bd11953b371771641159216f05b"
-// testing git
 let lat;
 let lon;
 let search_input = document.querySelector(".search input");
@@ -225,6 +224,11 @@ search_input.addEventListener("keyup", ({key}) => {
   if (key === "Enter"){
     checkGeoLocalization(search_input.value);
   }
+});
+
+// CONTAINER
+conatiner.addEventListener("click", ()=>{
+  ;
 });
 
 //DATE DISPLAY --> PART OF CALENDAR
