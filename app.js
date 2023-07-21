@@ -227,9 +227,12 @@ search_input.addEventListener("keyup", ({key}) => {
 });
 
 // CONTAINER
-conatiner.addEventListener("click", ()=>{
-  ;
-});
+let container = document.querySelectorAll(".container");
+container.forEach(container => {
+  container.addEventListener("click", ()=>{
+    window.open("PAGE_current_card/index.html")
+  })
+})
 
 //DATE DISPLAY --> PART OF CALENDAR
 
