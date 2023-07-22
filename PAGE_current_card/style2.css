@@ -25,6 +25,19 @@ body{
     border-radius: 25px;
     transition: all 0.3s;
     padding-left: 20px;
+    background-size: 900% 900% !important;
+    animation: color 4s ease-in-out infinite;
+}
+
+@keyframes color {
+    0%,
+    100%{
+        background-position: 0 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
 }
 
 
