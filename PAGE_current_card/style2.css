@@ -21,11 +21,11 @@ body{
     /* 14vw  270px*/
     height: 80vh;
     /* 38vh  355px*/
-    background: linear-gradient(330deg, rgba(255,85,0,1) 0%, rgba(255,179,0,1) 50%, rgba(249,255,0,1) 100%);
+    /* background: linear-gradient(330deg, rgba(255,85,0,1) 0%, rgba(255,179,0,1) 50%, rgba(249,255,0,1) 100%); */
     border-radius: 25px;
     transition: all 0.3s;
     padding-left: 20px;
-    background-size: 900% 900% !important;
+    background-size: 900% 900%;
     animation: color 4s ease-in-out infinite;
 }
 

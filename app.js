@@ -2,6 +2,13 @@ let city='Wroclaw';
 let apiKey = "appid=bf528bd11953b371771641159216f05b"
 let lat;
 let lon;
+var description1;
+var description2;
+var description3;
+var description4;
+var description5;
+var description6;
+var description7;
 let search_input = document.querySelector(".search input");
 let search_button = document.querySelector(".search button");
 
@@ -31,20 +38,10 @@ async function checkGeoLocalization(city){
     async function checkWeather(){
       const response2 = await fetch(api2);
       var data2 = await response2.json();
-
-
-
-      description = data2.daily.weathercode[3];
-      let container = document.querySelectorAll(".container");
-      container[0].addEventListener("click", ()=>{
-        window.open("PAGE_current_card/index.html")
-        // console.log(description);
-        // container_style(description, 2);
-      })
-
       // console.log(data2);
 
       for(let i=0; i<7;i++){
+
         // let hour = date.getHours();
         let max = data2.daily.temperature_2m_max[i];
         let min = data2.daily.temperature_2m_min[i];
@@ -83,6 +80,11 @@ search_input.addEventListener("keyup", ({key}) => {
   if (key === "Enter"){
     checkGeoLocalization(search_input.value);
   }
+});
+
+let container = document.querySelectorAll(".container");
+container[0].addEventListener("click", ()=>{
+  window.open("PAGE_current_card/index.html")
 });
 
 // CONTAINER
@@ -303,3 +305,5 @@ function container_style(description, i){
 
   document.querySelectorAll(".addnotation")[i].innerHTML = description;
 }
+
+export const siemanokolano = 42;
