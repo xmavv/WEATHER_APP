@@ -1,14 +1,3 @@
-// let container = document.querySelector('.container');
-// let weather_icon = document.querySelector(".image");
-// let circle = document.querySelector(".circle");
-// import { description1 } from '../app.js';
-
-// console.log(description1);
-
-// container.style.cssText = style_clear;
-// weather_icon.src = "images/sun-02.png";
-// circle.style.backgroundColor = "#eb8d19";
-
 function container_style(description, i){
 switch(description){
   case 0 : description = 'Clear sky';
@@ -141,4 +130,4 @@ function styles(style, i){
     }
   }
 
-container_style(99, 0);
+container_style(45, 0);
