@@ -1,7 +1,6 @@
 let apiKey = "appid=bf528bd11953b371771641159216f05b"
 let lat;
 let lon;
-let description1;
 
 export async function checkGeoLocalization(city){
     const api = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&${apiKey}`
@@ -25,40 +24,35 @@ export async function checkGeoLocalization(city){
       async function checkWeather(){
         const response2 = await fetch(api2);
         var data2 = await response2.json();
-        description1 = data2.daily.weathercode[0];
-        // console.log(data2);
   
         for(let i=0; i<7;i++){
   
-          // let hour = date.getHours();
+          let date = new Date();
+          let hour = date.getHours();
           let max = data2.daily.temperature_2m_max[i];
           let min = data2.daily.temperature_2m_min[i];
           let description = data2.daily.weathercode[i];
-
-          // let rain_probability = data2.hourly.precipitation_probability[hour];
-          // let air_pressure = data2.hourly.pressure_msl[hour];
-          // let humidity = data2.hourly.relativehumidity_2m[hour];
-          // let current_temperature = data2.hourly.temperature_2m[hour];
-          // let wind_speed = data2.hourly.windspeed_10m[hour];
+          let rain_probability = data2.hourly.precipitation_probability[hour];
+          let air_pressure = data2.hourly.pressure_msl[hour];
+          let humidity = data2.hourly.relativehumidity_2m[hour];
+          let current_temperature = data2.hourly.temperature_2m[hour];
+          let wind_speed = data2.hourly.windspeed_10m[hour];
   
           //JESCZE CHCESZ ZROBIC ZE JAK TEMPERATURA JEST WIEKSZA OD POWIEDZMY 18 STOPNI, TO JEST ZOLTE TLO --> if((min>18 || max>25) && description = 0 || description = 1 || description = 2 || description = 3){tlo jest zolte}
   
           //description from https://open-meteo.com/en/docs#latitude=50.86&longitude=17.46&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FLondon WMO WEATHER INTERPRETATION CODES
           container_style(description, i);
   
+          document.querySelector(".current_temperature").innerHTML = Math.round(current_temperature);
+          document.querySelector(".rain_probability").innerHTML = Math.round(rain_probability);
+          document.querySelector(".wind_speed").innerHTML = Math.round(wind_speed);
+          document.querySelector(".humidity").innerHTML = Math.round(humidity);
+          document.querySelector(".air_pressure").innerHTML = Math.round(air_pressure);
           document.querySelectorAll(".temperature_high")[i].innerHTML = 'Highest: <br>' + '<b>' + Math.round(max) + '°C </b>';
           document.querySelectorAll(".temperature_low")[i].innerHTML = 'Lowest: <br>' + '<b>' + Math.round(min) + '°C </b>';
   
           document.querySelector('.error').style.display = 'none';
           }
-
-
-          let containerLALALA = document.querySelectorAll(".container");
-          containerLALALA[0].addEventListener("click", ()=>{
-            window.open("PAGE_current_card/index.html")
-            console.log(description1);
-            container_style_antoher_page(description1);
-          });
         }
       checkWeather();
     }
@@ -197,155 +191,4 @@ export async function checkGeoLocalization(city){
     }
   
     document.querySelectorAll(".addnotation")[i].innerHTML = description;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  function styles_another_page(style){
-    let container = document.querySelector('#container');
-    let weather_icon = document.querySelector('#image');
-    let circle = document.querySelector('#circle');
-  
-    const bg_clear = 'background: linear-gradient(330deg, rgba(255,85,0,1) 0%, rgba(255,179,0,1) 50%, rgba(249,255,0,1) 100%); box-shadow: -5px 5px 2px rgba(104, 66, 8, 0.8);';
-    const bg_fog = 'background: linear-gradient(330deg, rgba(51,51,51,1) 0%, rgba(179,179,179,1) 50%, rgba(242,242,242,1) 100%); box-shadow: -5px 5px 2px rgba(37, 38, 40, 0.8);';
-    const bg_light_rain = 'background: linear-gradient(330deg, rgba(0,99,255,1) 0%, rgba(49,140,243,1) 50%, rgba(0,250,235,1) 100%); box-shadow: -5px 5px 2px rgba(17, 65, 99, 0.8);';
-    const bg_freezing_rain = 'background: linear-gradient(330deg, rgba(0,151,255,1) 0%, rgba(0,202,255,1) 50%, rgba(0,255,201,1) 100%); box-shadow: -5px 5px 2px rgba(17, 65, 99, 0.8);';
-    const bg_snow = 'background: linear-gradient(330deg, rgba(0,112,255,1) 0%, rgba(28,156,238,1) 50%, rgba(255,255,255,1) 100%); box-shadow: -5px 5px 2px rgba(9, 2, 90, 0.8);';
-    const bg_thunderstorm = 'background: linear-gradient(330deg, rgba(91,23,100,1) 0%, rgba(179,0,255,1) 50%, rgba(255,0,224,1) 100%); box-shadow: -5px 5px 2px rgba(52, 12, 85, 0.8);';
-  
-    if(style == 'bg_clear'){
-      container.style.cssText = bg_clear;
-      weather_icon.src = "images/sun-02.png";
-      circle.style.backgroundColor = "#eb8d19";
-    }
-    else if(style == 'bg_fog'){
-      container.style.cssText = bg_fog;
-      weather_icon.src = "images/cloudy_sky-02.png";
-      circle.style.backgroundColor = "#2f2f2f";
-    }
-    else if(style == 'bg_light_rain'){
-      container.style.cssText = bg_light_rain;
-      weather_icon.src = "images/water_drop-02.png";
-      circle.style.backgroundColor = "#0063ff";
-    }
-    else if(style == 'bg_freezing_rain'){
-      container.style.cssText = bg_freezing_rain;
-      weather_icon.src = "images/water_drop-02.png";
-      circle.style.backgroundColor = "#0063ff";
-    }
-    else if(style == 'bg_snow'){
-      container.style.cssText = bg_snow;
-      weather_icon.src = "images/snow-05.png";
-      circle.style.backgroundColor = "#031331";
-    }
-    else{
-      container.style.cssText = bg_thunderstorm;
-      weather_icon.src = "images/thunder-05.png";
-      circle.style.backgroundColor = "#5b1764";
-    }
-  }
-
-  function container_style_antoher_page(description){
-    switch(description){
-      case 0 : description = 'Clear sky';
-      styles_another_page('bg_clear');
-        break;
-      case 1 : description = 'Mainly clear';
-      styles_another_page('bg_clear');
-        break;
-      case 2 : description = 'Partly cloudy';
-      styles_another_page('bg_clear');
-        break;
-      case 3 : description = 'Overcast';
-      styles_another_page('bg_clear');
-        break;
-      case 45 : description = 'Fog';
-      styles_another_page('bg_fog');
-        break;
-      case 48 : description = 'Rime fog';
-      styles_another_page('bg_fog');
-        break;
-      case 51 : description = 'Light drizzle';
-      styles_another_page('bg_light_rain');
-        break;
-      case 53 : description = 'Moderate drizzle';
-      styles_another_page('bg_light_rain');
-        break;
-      case 55 : description = 'Dense intensity drizzle';
-      styles_another_page('bg_light_rain');
-        break;
-      case 56 : description = 'Light freezing drizzle';
-      styles_another_page('bg_light_rain');
-        break;
-      case 57 : description = 'Dense intensity freezing drizzle';
-      styles_another_page('bg_light_rain');
-        break;
-      case 61 : description = 'Slight rain';
-      styles_another_page('bg_light_rain');
-        break;
-      case 63 : description = 'Moderate rain';
-      styles_another_page('bg_light_rain');
-        break;
-      case 65 : description = 'Heavy intensity rain';
-      styles_another_page('bg_light_rain');
-        break;
-      case 66 : description = 'Light freezing rain';
-      styles_another_page('bg_light_rain');
-        break;
-      case 67 : description = 'Heavy intensity freezing rain';
-      styles_another_page('bg_light_rain');
-        break;
-      case 71 : description = 'Slight snow fall';
-      styles_another_page('bg_snow');
-        break;
-      case 73 : description = 'Moderate snow fall';
-      styles_another_page('bg_snow');
-        break;
-      case 75 : description = 'Heavy intensity snow fall';
-      styles_another_page('bg_snow');
-        break;
-      case 77 : description = 'Snow grains';
-      styles_another_page('bg_snow');
-        break;
-      case 80 : description = 'Slight rain showers';
-      styles_another_page('bg_light_rain');
-        break;
-      case 81 : description = 'Moderate rain showers';
-      styles_another_page('bg_light_rain');
-        break;
-      case 82 : description = 'Violent rain showers';
-      styles_another_page('bg_light_rain');
-        break;
-      case 85 : description = 'Snow showers';
-      styles_another_page('bg_snow');
-        break;
-      case 86 : description = 'Heavy snow showers';
-      styles_another_page('bg_snow');
-        break;
-      case 95 : description = 'Slight thunderstorm';
-      styles_another_page('bg_thunderstorm');
-        break;
-      case 96 : description = 'Slight hail thunderstorm';
-      styles_another_page('bg_thunderstorm');
-        break;
-      case 99 : description = 'Heavy hail Thunderstorm';
-      styles_another_page('bg_thunderstorm');
-        break;
-    }
   }

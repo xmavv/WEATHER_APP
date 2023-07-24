@@ -5,7 +5,7 @@
 /* jeszcze mozna zrobic ze powiedzmy po 18 sie zmieniaja grafiki */
 
 *{
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif; 
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 body{
@@ -84,7 +84,7 @@ body{
 
 .container{
     position: relative;
-    width: 250px;
+    width: 270px;
     /* 14vw  270px*/
     height: 355px;
     /* 38vh  355px*/
@@ -92,10 +92,11 @@ body{
     /* TA LINIA KODU SIE NIE WYSWIETLA W SENSIE NIE MA KOLOROW, SPRAWDZ CZEMU */
     border-radius: 25px;
     transition: all 0.3s;
-    padding-left: 20px;
 }
 
 /* jakis blurek jak wchodzi hover, i potem wyswietla dodatkowe informacje */
+/* !important, bo w js dokonuje zmiany containeru i jest to specyficzna zmiana, a ten 
+hover taki nie jest i go nie czyta jakos bardzo, przynajmniej czyta to left i top */
 .container:hover{
     transform: translate(-7px, 7px);
     box-shadow: 0px 0px 0px !important;
@@ -109,23 +110,40 @@ a{
     color: black;
 }
 
-/* !important, bo w js dokonuje zmiany containeru i jest to specyficzna zmiana, a ten hover taki nie jest i go nie czyta jakos bardzo, przynajmniej czyta to left i top */
-
-/* .teeksior{
+.teeksior{
+    padding: 5px 20px 35px;
     transition: filter 0.5s;
 }
 
 .teeksior:hover{
-    filter: blur(10px);
-} */
+    /* filter: blur(10px); */
+}
+
+.img_hover {
+    margin: 0.5rem 0.65rem 0.2rem 0rem;
+    width: 4.5rem;
+}
 
 /* to jest w pizdu zle zrobione ale robie to zeby sie pobawic tym js */
 /* no i co tutaj chcemy zeby to sie pojawialo gdy najezdzam sobie na ten tekst jak to zrobic xd?  */
-/* .blur_text{
-    margin-top: -250px;
-    margin-left: 20px;
+.blur_text{
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 0;
+    margin-left: 5px;
+    transform: translateY(-350px);
     display: none;
-} */
+    transition: display 5s;
+}
+
+.current_temperature, .rain_probability, .wind_speed, .humidity, .air_pressure {
+    font-size: 1.5rem;
+    font-weight: 700;
+} 
+
+.hover_add {
+    display: flex;
+}
 
 .card{
     position: relative;
@@ -171,6 +189,7 @@ a{
 }
 
 .date{
+    display: block;
     font-size: 3.125rem;
     margin-top: 12px;
 }
