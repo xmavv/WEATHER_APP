@@ -3,12 +3,24 @@ import { checkGeoLocalization } from './functions.js';
 let city='Wroclaw';
 let search_input = document.querySelector(".search input");
 let search_button = document.querySelector(".search button");
+let container = document.querySelector(".container");
+let blur_text = document.querySelectorAll('.blur_text')[0];
+let teeksior = document.querySelectorAll('.teeksior')[0];
 
 //////////TO JEST TUTAJ TAK JAKOS DZIWNIE ZROBIONE, ZROBILEM BO TAK DZIALA, ALE MOZE MOZNA TO ROZDZIELIC TAK JAK BYLO NA 2 FUNKCJE I UZYC JAKIEGOS GETTERA?
 
 //geolocalization from https://openweathermap.org/api/geocoding-api
 checkGeoLocalization(city);
 
+container.addEventListener("mouseenter", ()=>{
+  blur_text.style.cssText = 'display: block';
+  teeksior.style.cssText = 'filter: blur(10px);';
+});
+
+container.addEventListener("mouseleave", ()=>{
+  blur_text.style.cssText = 'display: none';
+  teeksior.style.cssText = 'filter: blur(0);';
+});
 
 //BUTTON
 search_button.addEventListener("click", ()=>{
@@ -21,33 +33,6 @@ search_input.addEventListener("keyup", ({key}) => {
     checkGeoLocalization(search_input.value);
   }
 });
-
-// let container = document.querySelectorAll(".container");
-// container[0].addEventListener("click", ()=>{
-//   window.open("PAGE_current_card/index.html")
-// });
-
-// CONTAINER
-// let container = document.querySelectorAll(".container");
-// container.forEach(container => {
-//   container.addEventListener("click", ()=>{
-//     window.open("PAGE_current_card/index.html")
-    
-//     for(let i=0; i<7; i++){
-//       // container = document.querySelectorAll('.container')[i]
-//       if(i == 1){
-//         console.log("siema");
-//       }
-//     }
-//   })
-// })
-
-// let container = document.querySelectorAll(".container");
-// container[0].addEventListener("click", ()=>{
-//   // console.log("siemano");
-//   description = data2.daily.weathercode[0];
-//   container_style(description, 0);
-// })
 
 //DATE DISPLAY --> PART OF CALENDAR
 
