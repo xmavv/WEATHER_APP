@@ -6,6 +6,7 @@
 
 *{
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 body{
@@ -85,6 +86,7 @@ body{
 .container{
     position: relative;
     width: 270px;
+    width: 270px;
     /* 14vw  270px*/
     height: 355px;
     /* 38vh  355px*/
@@ -95,6 +97,8 @@ body{
 }
 
 /* jakis blurek jak wchodzi hover, i potem wyswietla dodatkowe informacje */
+/* !important, bo w js dokonuje zmiany containeru i jest to specyficzna zmiana, a ten 
+hover taki nie jest i go nie czyta jakos bardzo, przynajmniej czyta to left i top */
 /* !important, bo w js dokonuje zmiany containeru i jest to specyficzna zmiana, a ten 
 hover taki nie jest i go nie czyta jakos bardzo, przynajmniej czyta to left i top */
 .container:hover{
@@ -112,10 +116,19 @@ a{
 
 .teeksior{
     padding: 5px 20px 35px;
+.teeksior{
+    padding: 5px 20px 35px;
     transition: filter 0.5s;
 }
 
 .teeksior:hover{
+    /* filter: blur(10px); */
+}
+
+.img_hover {
+    margin: 0.5rem 0.65rem 0.2rem 0rem;
+    width: 4.5rem;
+}
     /* filter: blur(10px); */
 }
 
@@ -132,7 +145,24 @@ a{
     line-height: 0;
     margin-left: 5px;
     transform: translateY(-350px);
+.blur_text{
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 0;
+    margin-left: 5px;
+    transform: translateY(-350px);
     display: none;
+    transition: display 5s;
+}
+
+.current_temperature, .rain_probability, .wind_speed, .humidity, .air_pressure {
+    font-size: 1.5rem;
+    font-weight: 700;
+} 
+
+.hover_add {
+    display: flex;
+}
     transition: display 5s;
 }
 
@@ -189,6 +219,7 @@ a{
 }
 
 .date{
+    display: block;
     display: block;
     font-size: 3.125rem;
     margin-top: 12px;
