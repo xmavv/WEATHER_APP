@@ -24,6 +24,7 @@ export async function checkGeoLocalization(city){
       async function checkWeather(){
         const response2 = await fetch(api2);
         var data2 = await response2.json();
+        console.log(data2);
   
         for(let i=0; i<7;i++){
   
@@ -48,8 +49,8 @@ export async function checkGeoLocalization(city){
           document.querySelector(".wind_speed").innerHTML = Math.round(wind_speed);
           document.querySelector(".humidity").innerHTML = Math.round(humidity);
           document.querySelector(".air_pressure").innerHTML = Math.round(air_pressure);
-          document.querySelectorAll(".temperature_high")[i].innerHTML = 'Highest: <br>' + '<b>' + Math.round(max) + '°C </b>';
-          document.querySelectorAll(".temperature_low")[i].innerHTML = 'Lowest: <br>' + '<b>' + Math.round(min) + '°C </b>';
+          document.querySelectorAll(".temperature_high")[i].innerHTML = 'Highest: <br>' + '<b>' + Math.round(max) + '</b>°C';
+          document.querySelectorAll(".temperature_low")[i].innerHTML = 'Lowest: <br>' + '<b>' + Math.round(min) + '</b> °C';
   
           document.querySelector('.error').style.display = 'none';
           }

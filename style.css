@@ -115,33 +115,43 @@ a{
     transition: filter 0.5s;
 }
 
-.teeksior:hover{
-    /* filter: blur(10px); */
-}
-
 .img_hover {
     margin: 0.5rem 0.65rem 0.2rem 0rem;
-    width: 4.5rem;
+    height: 3.3rem;
+    margin-left: 7px;
 }
 
 /* to jest w pizdu zle zrobione ale robie to zeby sie pobawic tym js */
 /* no i co tutaj chcemy zeby to sie pojawialo gdy najezdzam sobie na ten tekst jak to zrobic xd?  */
 .blur_text{
-    text-align: center;
     font-size: 1.1rem;
     line-height: 0;
     margin-left: 5px;
-    transform: translateY(-350px);
+    transform: translateY(-340px);
     display: none;
+    opacity: 1;
     transition: display 5s;
 }
 
 .current_temperature, .rain_probability, .wind_speed, .humidity, .air_pressure {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.9rem;
+    font-weight: 900;
 } 
 
 .hover_add {
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.unit {
+    font-weight: 500;
+    font-size: 0.9rem;
+    vertical-align: text-top;
+}
+
+.hover_add div {
     display: flex;
 }
 
