@@ -24,7 +24,6 @@ export async function checkGeoLocalization(city){
       async function checkWeather(){
         const response2 = await fetch(api2);
         var data2 = await response2.json();
-        console.log(data2);
   
         for(let i=0; i<7;i++){
   
@@ -33,22 +32,22 @@ export async function checkGeoLocalization(city){
           let max = data2.daily.temperature_2m_max[i];
           let min = data2.daily.temperature_2m_min[i];
           let description = data2.daily.weathercode[i];
-          let rain_probability = data2.hourly.precipitation_probability[hour];
-          let air_pressure = data2.hourly.pressure_msl[hour];
-          let humidity = data2.hourly.relativehumidity_2m[hour];
-          let current_temperature = data2.hourly.temperature_2m[hour];
-          let wind_speed = data2.hourly.windspeed_10m[hour];
+          let rain_probability = data2.hourly.precipitation_probability[hour-1 + 24*i];
+          let air_pressure = data2.hourly.pressure_msl[hour-1 + 24*i];
+          let humidity = data2.hourly.relativehumidity_2m[hour-1 + 24*i];
+          let current_temperature = data2.hourly.temperature_2m[hour-1 + 24*i];
+          let wind_speed = data2.hourly.windspeed_10m[hour-1 + 24*i];
   
           //JESCZE CHCESZ ZROBIC ZE JAK TEMPERATURA JEST WIEKSZA OD POWIEDZMY 18 STOPNI, TO JEST ZOLTE TLO --> if((min>18 || max>25) && description = 0 || description = 1 || description = 2 || description = 3){tlo jest zolte}
   
           //description from https://open-meteo.com/en/docs#latitude=50.86&longitude=17.46&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FLondon WMO WEATHER INTERPRETATION CODES
           container_style(description, i);
   
-          document.querySelector(".current_temperature").innerHTML = Math.round(current_temperature);
-          document.querySelector(".rain_probability").innerHTML = Math.round(rain_probability);
-          document.querySelector(".wind_speed").innerHTML = Math.round(wind_speed);
-          document.querySelector(".humidity").innerHTML = Math.round(humidity);
-          document.querySelector(".air_pressure").innerHTML = Math.round(air_pressure);
+          document.querySelectorAll(".current_temperature")[i].innerHTML = Math.round(current_temperature);
+          document.querySelectorAll(".rain_probability")[i].innerHTML = Math.round(rain_probability);
+          document.querySelectorAll(".wind_speed")[i].innerHTML = Math.round(wind_speed);
+          document.querySelectorAll(".humidity")[i].innerHTML = Math.round(humidity);
+          document.querySelectorAll(".air_pressure")[i].innerHTML = Math.round(air_pressure);
           document.querySelectorAll(".temperature_high")[i].innerHTML = 'Highest: <br>' + '<b>' + Math.round(max) + '</b>°C';
           document.querySelectorAll(".temperature_low")[i].innerHTML = 'Lowest: <br>' + '<b>' + Math.round(min) + '</b> °C';
   
@@ -193,3 +192,19 @@ export async function checkGeoLocalization(city){
   
     document.querySelectorAll(".addnotation")[i].innerHTML = description;
   }
+
+export function hover_information (i) {
+  let container = document.querySelectorAll(".container");
+  let blur_text = document.querySelectorAll('.blur_text');
+  let teeksior = document.querySelectorAll('.teeksior');
+
+  container[i].addEventListener("mouseenter", ()=>{
+    blur_text[i].style.cssText = 'display: block';
+    teeksior[i].style.cssText = 'filter: blur(10px);';
+  });
+  
+  container[i].addEventListener("mouseleave", ()=>{
+    blur_text[i].style.cssText = 'display: none';
+    teeksior[i].style.cssText = 'filter: blur(0);';
+  });
+}

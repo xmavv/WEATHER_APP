@@ -1,3 +1,6 @@
+// na click mogloby pokazywac kazdy z propertisow tych hoverowych
+// moze cos z zoomem gdy jest hover
+
 import { checkGeoLocalization } from './functions.js';
 let city='Wroclaw';
 

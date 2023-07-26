@@ -1,20 +1,27 @@
+import { checkGeoLocalization } from "./functions.js";
+import { hover_information } from "./functions.js";
+
 let search_input = document.querySelector(".search input");
 let search_button = document.querySelector(".search button");
-let container = document.querySelector(".container");
-let blur_text = document.querySelectorAll('.blur_text')[0];
-let teeksior = document.querySelectorAll('.teeksior')[0];
 
-blur_text.style.transition = 'display 50s';
+hover_information(0);
+hover_information(1);
+hover_information(2);
+hover_information(3);
+hover_information(4);
+hover_information(5);
+hover_information(6);
 
-container.addEventListener("mouseenter", ()=>{
-  blur_text.style.cssText = 'display: block';
-  teeksior.style.cssText = 'filter: blur(10px);';
-});
+// TUTAJ JAK BEDZIESZ CHCIAL NA CLICKU ZEBY KAZDY SIE POKAZYWAL HOVER I WOWCZAS ANIMACJA WSZEDZIE
 
-container.addEventListener("mouseleave", ()=>{
-  blur_text.style.cssText = 'display: none';
-  teeksior.style.cssText = 'filter: blur(0);';
-});
+// container.forEach(cont => cont.addEventListener('mouseenter', () => {
+//   blur_text.forEach(text => {
+//     text.style.cssText = 'display: block;'
+//   })
+//   teeksior.forEach(text => {
+//     text.style.cssText = 'filter: blur(10px);';
+//   })
+// }));
 
 //BUTTON
 search_button.addEventListener("click", ()=>{
