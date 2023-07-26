@@ -29,14 +29,15 @@ export async function checkGeoLocalization(city){
   
           let date = new Date();
           let hour = date.getHours();
+          console.log(hour);
           let max = data2.daily.temperature_2m_max[i];
           let min = data2.daily.temperature_2m_min[i];
           let description = data2.daily.weathercode[i];
-          let rain_probability = data2.hourly.precipitation_probability[hour-1 + 24*i];
-          let air_pressure = data2.hourly.pressure_msl[hour-1 + 24*i];
-          let humidity = data2.hourly.relativehumidity_2m[hour-1 + 24*i];
-          let current_temperature = data2.hourly.temperature_2m[hour-1 + 24*i];
-          let wind_speed = data2.hourly.windspeed_10m[hour-1 + 24*i];
+          let rain_probability = data2.hourly.precipitation_probability[hour + 24*i];
+          let air_pressure = data2.hourly.pressure_msl[hour + 24*i];
+          let humidity = data2.hourly.relativehumidity_2m[hour + 24*i];
+          let current_temperature = data2.hourly.temperature_2m[hour + 24*i];
+          let wind_speed = data2.hourly.windspeed_10m[hour + 24*i];
   
           //JESCZE CHCESZ ZROBIC ZE JAK TEMPERATURA JEST WIEKSZA OD POWIEDZMY 18 STOPNI, TO JEST ZOLTE TLO --> if((min>18 || max>25) && description = 0 || description = 1 || description = 2 || description = 3){tlo jest zolte}
   
