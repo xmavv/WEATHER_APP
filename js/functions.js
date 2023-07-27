@@ -3,7 +3,7 @@ let lat;
 let lon;
 
 export async function checkGeoLocalization(city){
-    const api = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&${apiKey}`
+    const api = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&${apiKey}`
     const response1 = await fetch(api);
     var data1 = await response1.json();
     
