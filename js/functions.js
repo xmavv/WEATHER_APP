@@ -61,15 +61,15 @@ export async function checkGeoLocalization(city){
 
   function styles(style, i){
     let container = document.querySelectorAll('.container')[i]
-    let weather_icon = document.querySelectorAll(".image")[i];
+    let weather_icon = document.querySelectorAll(".corner_image")[i];
     let circle = document.querySelectorAll(".circle")[i];
   
-    const bg_clear = 'background: linear-gradient(330deg, rgba(255,85,0,1) 0%, rgba(255,179,0,1) 50%, rgba(249,255,0,1) 100%); box-shadow: -5px 5px 2px rgba(104, 66, 8, 0.8);';
-    const bg_fog = 'background: linear-gradient(330deg, rgba(51,51,51,1) 0%, rgba(179,179,179,1) 50%, rgba(242,242,242,1) 100%); box-shadow: -5px 5px 2px rgba(37, 38, 40, 0.8);';
-    const bg_light_rain = 'background: linear-gradient(330deg, rgba(0,99,255,1) 0%, rgba(49,140,243,1) 50%, rgba(0,250,235,1) 100%); box-shadow: -5px 5px 2px rgba(17, 65, 99, 0.8);';
-    const bg_freezing_rain = 'background: linear-gradient(330deg, rgba(0,151,255,1) 0%, rgba(0,202,255,1) 50%, rgba(0,255,201,1) 100%); box-shadow: -5px 5px 2px rgba(17, 65, 99, 0.8);';
-    const bg_snow = 'background: linear-gradient(330deg, rgba(0,112,255,1) 0%, rgba(28,156,238,1) 50%, rgba(255,255,255,1) 100%); box-shadow: -5px 5px 2px rgba(9, 2, 90, 0.8);';
-    const bg_thunderstorm = 'background: linear-gradient(330deg, rgba(91,23,100,1) 0%, rgba(179,0,255,1) 50%, rgba(255,0,224,1) 100%); box-shadow: -5px 5px 2px rgba(52, 12, 85, 0.8);';
+    const bg_clear = 'background: linear-gradient(330deg, rgba(255,85,0,1) 0%, rgba(255,179,0,1) 50%, rgba(249,255,0,1) 100%); box-shadow:';
+    const bg_fog = 'background: linear-gradient(330deg, rgba(51,51,51,1) 0%, rgba(179,179,179,1) 50%, rgba(242,242,242,1) 100%); box-shadow:';
+    const bg_light_rain = 'background: linear-gradient(330deg, rgba(0,99,255,1) 0%, rgba(49,140,243,1) 50%, rgba(0,250,235,1) 100%); box-shadow:';
+    const bg_freezing_rain = 'background: linear-gradient(330deg, rgba(0,151,255,1) 0%, rgba(0,202,255,1) 50%, rgba(0,255,201,1) 100%); box-shadow:';
+    const bg_snow = 'background: linear-gradient(330deg, rgba(0,112,255,1) 0%, rgba(28,156,238,1) 50%, rgba(255,255,255,1) 100%); box-shadow:';
+    const bg_thunderstorm = 'background: linear-gradient(330deg, rgba(91,23,100,1) 0%, rgba(179,0,255,1) 50%, rgba(255,0,224,1) 100%);';
   
     if(style == 'bg_clear'){
       container.style.cssText = bg_clear;
