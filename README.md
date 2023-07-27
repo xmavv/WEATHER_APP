@@ -4,4 +4,4 @@
 
 <h2>Demo video</h2>
 <video src="GITHUB_WEATHER_1.mp4" type="video/mp4"></video>
-https://github.com/xmavv/WEATHER_APP/assets/129995423/5a57cdf8-a31b-4688-949c-dfe4c76d0dcd
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ynCG3XeAf6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
