@@ -4,9 +4,10 @@
 
 ## Hi! 😛
 
-Thanks for checking out my first project
+Thanks for checking out my first project!
 I made this project because of curiosity, if I am able to do such one
-Recently I saw some design of weather cards, and I wanted to do such design on my own, then I thought it also would be nice to code something like this, and there it is!
+Recently I saw some design of weather cards, and I wanted to do such design on my own, then I thought it also would be nice to code something like this, and there it is
+I think my project is an unique weather app (in terms of design), hope You like it!
 
 ## Problems and bugs
 
