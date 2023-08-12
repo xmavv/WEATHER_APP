@@ -199,6 +199,11 @@ export function hover_information (i) {
   let blur_text = document.querySelectorAll('.blur_text');
   let teeksior = document.querySelectorAll('.teeksior');
 
+  container[i].addEventListener("click", ()=>{
+    blur_text[i].style.cssText = 'display: block';
+    teeksior[i].style.cssText = 'filter: blur(10px);';
+  });
+
   container[i].addEventListener("mouseenter", ()=>{
     blur_text[i].style.cssText = 'display: block';
     teeksior[i].style.cssText = 'filter: blur(10px);';

@@ -47,9 +47,9 @@ body {
 
 .search {
     position: relative;
-    width: 100vw;
+    padding: 0 20px;
+    /* width: 100vw; */
     top: 20px;
-    margin: auto;
     display: flex;
     justify-content: center;
 }
@@ -207,6 +207,26 @@ hover taki nie jest i go nie czyta jakos bardzo, przynajmniej czyta to left i to
 .unit {
     font-weight: 500;
     font-size: 0.9rem;
+}
+
+@media (max-width: 500px) {
+    .cut {
+        padding: 0 20px;
+    }
+
+    .container:hover {
+        transform: scale(1.2);
+    }
+
+    .search input {
+        width: 250px;
+        height: 20px;
+        font-size: 0.8rem;
+    }
+    
+    .search button {
+        height: 40px;
+    }
 }
 
 /* add media i defaultowo jest all, ale mozna zrobic screen itd */

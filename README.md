@@ -1,6 +1,6 @@
 # [My first GitHub Project - Weather app (who would say...)](https://weatherapp-xmavv.netlify.app/)
 
-![Design preview for the weather app](./images/design_weather.png)
+![Design preview for the weather app](./images/images/design_weather.png)
 
 ## Hi! 😛
 
