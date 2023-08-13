@@ -2,6 +2,8 @@
 
 ![Design preview for the weather app](./images/images/design_weather.png)
 
+https://github.com/xmavv/WEATHER_APP/assets/129995423/128f42e5-00ab-456d-977b-432d567e1461
+
 ## Hi! 😛
 
 Thanks for checking out my first project!
