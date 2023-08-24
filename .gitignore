@@ -1,0 +1,5 @@
+# ignore apiKey
+./js/apikey.js
+
+# ignore video
+*.mp4
